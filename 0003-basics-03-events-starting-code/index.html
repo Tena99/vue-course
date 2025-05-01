@@ -20,7 +20,28 @@
       <h2>Events in Action</h2>
       <button v-on:click="increment(5)">Add</button>
       <button v-on:click="decrement(1)">Remove</button>
+
+      <p v-once>Starting value: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
+
+      <div>
+        <!-- <input type="text" v-on:input="console.log($event.target.value)" /> -->
+        <!-- <input type="text" v-on:input="setName" /> -->
+        <input
+          type="text"
+          v-on:input="setName($event, 'Hardcoded Lastname')"
+          v-on:keyup.enter="this.confirmedName = name"
+        />
+
+        <p>Your name: {{confirmedName}}</p>
+      </div>
+
+      <!-- <form v-on:submit="submitForm"> -->
+      <!-- You can use modifiers  -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" />
+        <button>Sign Up</button>
+      </form>
     </section>
   </body>
 </html>
